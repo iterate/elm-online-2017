@@ -3,19 +3,25 @@
 
 module Main exposing (..)
 
+import Dict exposing (Dict)
 import Html exposing (Html, main_, header, h1, text, div, button)
 import Html.Attributes exposing (class)
 import Html.Events exposing (onClick)
 
 
 type alias Model =
-    { counters : List Int
+    { counters : Dict String Int
     }
 
 
 init : Model
 init =
-    { counters = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+    { counters =
+        Dict.fromList
+            [ ( "Knapper", 0 )
+            , ( "Glansbilder", 0 )
+            , ( "Kroner", 0 )
+            ]
     }
 
 
@@ -24,8 +30,8 @@ init =
 
 
 type Msg
-    = Increment Int
-    | Decrement Int
+    = Increment String
+    | Decrement String
     | IncrementAll
     | DecrementAll
 
@@ -33,31 +39,17 @@ type Msg
 update : Msg -> Model -> Model
 update msg model =
     case msg of
-        Increment indexToChange ->
-            let
-                updateList index cnt =
-                    if index == indexToChange then
-                        cnt + 1
-                    else
-                        cnt
-            in
-                { model | counters = List.indexedMap updateList model.counters }
+        Increment thing ->
+            { model | counters = Dict.update thing (Maybe.map (\c -> c + 1)) model.counters }
 
-        Decrement indexToChange ->
-            let
-                updateList index cnt =
-                    if index == indexToChange then
-                        cnt - 1
-                    else
-                        cnt
-            in
-                { model | counters = List.indexedMap updateList model.counters }
+        Decrement thing ->
+            { model | counters = Dict.update thing (Maybe.map (\c -> c - 1)) model.counters }
 
         IncrementAll ->
-            { model | counters = List.map (\n -> n + 1) model.counters }
+            { model | counters = Dict.map (\_ n -> n + 1) model.counters }
 
         DecrementAll ->
-            { model | counters = List.map (\n -> n - 1) model.counters }
+            { model | counters = Dict.map (\_ n -> n - 1) model.counters }
 
 
 
@@ -68,22 +60,23 @@ view : Model -> Html Msg
 view model =
     main_ []
         [ h1 [] [ text "Twish" ]
-        , div [ class "sum" ] [ text ("Sum: " ++ toString (List.sum model.counters)) ]
+        , div [ class "sum" ] [ text ("Sum: " ++ toString (List.sum (Dict.values model.counters))) ]
         , div [ class "counter" ]
             [ button [ onClick IncrementAll ] [ text "+" ]
             , button [ onClick DecrementAll ] [ text "-" ]
             ]
         , div [ class "counters" ]
-            (List.indexedMap viewCounter model.counters)
+            (List.map viewCounter (Dict.toList model.counters))
         ]
 
 
-viewCounter : Int -> Int -> Html Msg
-viewCounter index count =
+viewCounter : ( String, Int ) -> Html Msg
+viewCounter ( thing, count ) =
     div [ class "counter" ]
-        [ button [ onClick (Increment index) ] [ text "+" ]
+        [ div [ class "title" ] [ text thing ]
+        , button [ onClick (Increment thing) ] [ text "+" ]
         , text (toString count)
-        , button [ onClick (Decrement index) ] [ text "-" ]
+        , button [ onClick (Decrement thing) ] [ text "-" ]
         ]
 
 

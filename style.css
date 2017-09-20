@@ -116,6 +116,12 @@ button {
     margin-right: -10px;
     margin-left: -10px;
     margin-bottom: 10px;
+    display: flex;
+    width: 500px;
+}
+
+.counter .title {
+    flex-grow: 1;
 }
 
 .counter button {
