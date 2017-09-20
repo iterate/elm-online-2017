@@ -9,12 +9,16 @@ import Html.Events exposing (onClick)
 
 
 type alias Model =
-    Int
+    { counter1 : Int
+    , counter2 : Int
+    }
 
 
 init : Model
 init =
-    0
+    { counter1 = 0
+    , counter2 = 0
+    }
 
 
 
@@ -22,18 +26,26 @@ init =
 
 
 type Msg
-    = Increment
-    | Decrement
+    = Increment1
+    | Decrement1
+    | Increment2
+    | Decrement2
 
 
 update : Msg -> Model -> Model
 update msg model =
     case msg of
-        Increment ->
-            model + 1
+        Increment1 ->
+            { model | counter1 = model.counter1 + 1 }
 
-        Decrement ->
-            model - 1
+        Decrement1 ->
+            { model | counter1 = model.counter1 - 1 }
+
+        Increment2 ->
+            { model | counter2 = model.counter2 + 1 }
+
+        Decrement2 ->
+            { model | counter2 = model.counter2 - 1 }
 
 
 
@@ -45,9 +57,14 @@ view model =
     main_ []
         [ h1 [] [ text "Twish" ]
         , div [ class "counter" ]
-            [ button [ onClick Increment ] [ text "+" ]
-            , text (toString model)
-            , button [ onClick Decrement ] [ text "-" ]
+            [ button [ onClick Increment1 ] [ text "+" ]
+            , text (toString model.counter1)
+            , button [ onClick Decrement1 ] [ text "-" ]
+            ]
+        , div [ class "counter" ]
+            [ button [ onClick Increment2 ] [ text "+" ]
+            , text (toString model.counter2)
+            , button [ onClick Decrement2 ] [ text "-" ]
             ]
         ]
 
