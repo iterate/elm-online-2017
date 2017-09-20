@@ -69,7 +69,7 @@ update msg model =
 view : Model -> Html Msg
 view model =
     main_ []
-        [ h1 [] [ text "Twish" ]
+        [ h1 [] [ text "Counters" ]
         , form [ class "new", onSubmit AddThing ] [ input [ value model.newThing, onInput NewThingInput ] [], button [] [ text "Legg til" ] ]
         , div [ class "sum" ] [ text ("Sum: " ++ toString (List.sum (Dict.values model.counters))) ]
         , div [ class "counter" ]
