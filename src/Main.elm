@@ -3,7 +3,9 @@
 
 module Main exposing (..)
 
-import Html exposing (Html, main_, header, h1, text)
+import Html exposing (Html, main_, header, h1, text, div, button)
+import Html.Attributes exposing (class)
+import Html.Events exposing (onClick)
 
 
 type alias Model =
@@ -26,7 +28,12 @@ type Msg
 
 update : Msg -> Model -> Model
 update msg model =
-    Debug.crash "TODO"
+    case msg of
+        Increment ->
+            model + 1
+
+        Decrement ->
+            model - 1
 
 
 
@@ -36,7 +43,13 @@ update msg model =
 view : Model -> Html Msg
 view model =
     main_ []
-        [ h1 [] [ text "Twish" ] ]
+        [ h1 [] [ text "Twish" ]
+        , div [ class "counter" ]
+            [ button [ onClick Increment ] [ text "+" ]
+            , text (toString model)
+            , button [ onClick Decrement ] [ text "-" ]
+            ]
+        ]
 
 
 
