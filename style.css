@@ -104,20 +104,24 @@ header {
     align-items: center;
 }
 
+button {
+    font-size: 25px;
+    background-color: var(--cta);
+    color: #fff;
+    font-weight: bold;
+}
+
 .counter {
     font-size: 25px;
     margin-right: -10px;
+    margin-left: -10px;
     margin-bottom: 10px;
 }
 
 .counter button {
-    font-size: 25px;
-    background-color: var(--cta);
-    color: #fff;
     margin-left: 10px;
     margin-right: 10px;
     width: 40px;
-    font-weight: bold;
 }
 
 .inputs {

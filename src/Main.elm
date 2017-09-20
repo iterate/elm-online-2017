@@ -26,6 +26,8 @@ init =
 type Msg
     = Increment Int
     | Decrement Int
+    | IncrementAll
+    | DecrementAll
 
 
 update : Msg -> Model -> Model
@@ -51,6 +53,12 @@ update msg model =
             in
                 { model | counters = List.indexedMap updateList model.counters }
 
+        IncrementAll ->
+            { model | counters = List.map (\n -> n + 1) model.counters }
+
+        DecrementAll ->
+            { model | counters = List.map (\n -> n - 1) model.counters }
+
 
 
 -- View
@@ -60,6 +68,11 @@ view : Model -> Html Msg
 view model =
     main_ []
         [ h1 [] [ text "Twish" ]
+        , div [ class "sum" ] [ text ("Sum: " ++ toString (List.sum model.counters)) ]
+        , div [ class "counter" ]
+            [ button [ onClick IncrementAll ] [ text "+" ]
+            , button [ onClick DecrementAll ] [ text "-" ]
+            ]
         , div [ class "counters" ]
             (List.indexedMap viewCounter model.counters)
         ]
