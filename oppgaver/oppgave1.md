@@ -4,7 +4,7 @@ Dupliser litt kode i view og Msg slik at man kan oppdatere disse tellerne og de 
 Ikke tenk for mye på gjenbruk av kode. Det kommer vi til i neste runde.
 
 
-Tips
+## Tips
 
 ```elm
 type alias Person
@@ -17,3 +17,7 @@ updatePerson : Person -> Person
 updatePerson person =
     { person | age = person.age + 1}
 ```
+
+## Ekstraoppgave
+
+Lag to knapper til for hver teller. Disse skal legge til og trekke fra 10.
