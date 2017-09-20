@@ -9,15 +9,13 @@ import Html.Events exposing (onClick)
 
 
 type alias Model =
-    { counter1 : Int
-    , counter2 : Int
+    { counters : List Int
     }
 
 
 init : Model
 init =
-    { counter1 = 0
-    , counter2 = 0
+    { counters = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
     }
 
 
@@ -26,26 +24,32 @@ init =
 
 
 type Msg
-    = Increment1
-    | Decrement1
-    | Increment2
-    | Decrement2
+    = Increment Int
+    | Decrement Int
 
 
 update : Msg -> Model -> Model
 update msg model =
     case msg of
-        Increment1 ->
-            { model | counter1 = model.counter1 + 1 }
+        Increment indexToChange ->
+            let
+                updateList index cnt =
+                    if index == indexToChange then
+                        cnt + 1
+                    else
+                        cnt
+            in
+                { model | counters = List.indexedMap updateList model.counters }
 
-        Decrement1 ->
-            { model | counter1 = model.counter1 - 1 }
-
-        Increment2 ->
-            { model | counter2 = model.counter2 + 1 }
-
-        Decrement2 ->
-            { model | counter2 = model.counter2 - 1 }
+        Decrement indexToChange ->
+            let
+                updateList index cnt =
+                    if index == indexToChange then
+                        cnt - 1
+                    else
+                        cnt
+            in
+                { model | counters = List.indexedMap updateList model.counters }
 
 
 
@@ -56,16 +60,17 @@ view : Model -> Html Msg
 view model =
     main_ []
         [ h1 [] [ text "Twish" ]
-        , div [ class "counter" ]
-            [ button [ onClick Increment1 ] [ text "+" ]
-            , text (toString model.counter1)
-            , button [ onClick Decrement1 ] [ text "-" ]
-            ]
-        , div [ class "counter" ]
-            [ button [ onClick Increment2 ] [ text "+" ]
-            , text (toString model.counter2)
-            , button [ onClick Decrement2 ] [ text "-" ]
-            ]
+        , div [ class "counters" ]
+            (List.indexedMap viewCounter model.counters)
+        ]
+
+
+viewCounter : Int -> Int -> Html Msg
+viewCounter index count =
+    div [ class "counter" ]
+        [ button [ onClick (Increment index) ] [ text "+" ]
+        , text (toString count)
+        , button [ onClick (Decrement index) ] [ text "-" ]
         ]
 
 
