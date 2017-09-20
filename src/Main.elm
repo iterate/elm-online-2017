@@ -4,13 +4,14 @@
 module Main exposing (..)
 
 import Dict exposing (Dict)
-import Html exposing (Html, main_, header, h1, text, div, button)
-import Html.Attributes exposing (class)
-import Html.Events exposing (onClick)
+import Html exposing (Html, main_, header, h1, text, div, button, input, form)
+import Html.Attributes exposing (class, value)
+import Html.Events exposing (onClick, onInput, onSubmit)
 
 
 type alias Model =
     { counters : Dict String Int
+    , newThing : String
     }
 
 
@@ -22,6 +23,7 @@ init =
             , ( "Glansbilder", 0 )
             , ( "Kroner", 0 )
             ]
+    , newThing = ""
     }
 
 
@@ -34,6 +36,8 @@ type Msg
     | Decrement String
     | IncrementAll
     | DecrementAll
+    | AddThing
+    | NewThingInput String
 
 
 update : Msg -> Model -> Model
@@ -51,6 +55,12 @@ update msg model =
         DecrementAll ->
             { model | counters = Dict.map (\_ n -> n - 1) model.counters }
 
+        AddThing ->
+            { model | counters = Dict.insert model.newThing 0 model.counters, newThing = "" }
+
+        NewThingInput newThing ->
+            { model | newThing = newThing }
+
 
 
 -- View
@@ -60,6 +70,7 @@ view : Model -> Html Msg
 view model =
     main_ []
         [ h1 [] [ text "Twish" ]
+        , form [ class "new", onSubmit AddThing ] [ input [ value model.newThing, onInput NewThingInput ] [], button [] [ text "Legg til" ] ]
         , div [ class "sum" ] [ text ("Sum: " ++ toString (List.sum (Dict.values model.counters))) ]
         , div [ class "counter" ]
             [ button [ onClick IncrementAll ] [ text "+" ]
