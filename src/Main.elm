@@ -24,7 +24,11 @@ type Msg
 
 update : Msg -> Model -> Model
 update msg model =
-    Debug.crash "TODO"
+    case msg of
+        Increment ->
+            model + 1
+        Decrement ->
+            model - 1
 
 
 
@@ -38,7 +42,7 @@ view model =
         , div [ class "counter" ]
             [ button [] [ text "+" ]
             , text (toString model)
-            , button [] [text "-"]
+            , button [] [ text "-" ]
             ]
         ]
 
