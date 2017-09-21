@@ -6,7 +6,8 @@ type alias Model =
     Int
 
 init : Model
-init = 0
+init =
+    0
 
 -- Update
 
@@ -21,7 +22,7 @@ update msg model =
 -- View
 
 view : Model -> Html Msg
-view model
+view model =
     main_ []
         [h1 [] [text "Hello World!"]]
 
