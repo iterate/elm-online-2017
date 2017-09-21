@@ -29,10 +29,17 @@ update : Msg -> Model -> Model
 update msg model =
     case msg of
         Increment indexToChange ->
-            { model | counter1 = model.counter1 + 1 }
+            let
+                updateElement index cnt =
+                    if index == indexToChange then
+                        cnt + 1
+                    else
+                        cnt
+            in
+                a + b
 
         Decrement indexToChange ->
-            { model | counter1 = model.counter1 - 1 }
+
 
 
 
