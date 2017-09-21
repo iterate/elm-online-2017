@@ -42,9 +42,9 @@ view model =
     main_ []
         [ h1 [] [ text "Counter" ]
         , div [ class "counter" ]
-            [ button [] [ text "+" ]
+            [ button [onClick Increment] [ text "+" ]
             , text (toString model)
-            , button [] [ text "-" ]
+            , button [onClick Decrement] [ text "-" ]
             ]
         ]
 
