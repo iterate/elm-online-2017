@@ -55,7 +55,7 @@ update msg model =
 view : Model -> Html Msg
 view model =
     main_ []
-        [ h1 [] [ text "Twish" ]
+        [ h1 [] [ text "Counters" ]
         , div [ class "counter" ]
             [ button [ onClick Increment1 ] [ text "+" ]
             , text (toString model.counter1)
