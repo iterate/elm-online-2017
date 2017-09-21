@@ -6,14 +6,13 @@ import Html.Events exposing (onClick)
 
 
 type alias Model =
-    { counters: List Int
+    { counters : List Int
     }
 
 
 init : Model
 init =
-    { counter1 = 0
-    , counter2 = 0
+    { counters = [0,0,0,0,0,0,0]
     }
 
 
