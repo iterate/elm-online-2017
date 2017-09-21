@@ -60,11 +60,9 @@ update msg model =
         DecrementAll ->
             let
                 increment count =
-                    count + 1
+                    count - 1
             in
                 { model | counters = List.map increment model.counters }
-
-
 
 
 
@@ -76,6 +74,10 @@ view model =
     main_ []
         [ h1 [] [ text "Counter" ]
         , div [ class "sum" ] [ text ("Sum: " ++ toString (List.sum model.counters)) ]
+        div [ class "counter" ]
+            [ button [ onClick (IncrementAll) ] [ text "+" ]
+            , button [ onClick (DecrementAll) ] [ text "-" ]
+            ]
         , div [ class "counters" ]
             (List.indexedMap viewCounter model.counters)
         ]
