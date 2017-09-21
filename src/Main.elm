@@ -23,8 +23,10 @@ init =
 
 
 type Msg
-    = Increment
-    | Decrement
+    = Increment1
+    | Decrement1
+    | Increment1
+    | Decrement1
 
 
 update : Msg -> Model -> Model
