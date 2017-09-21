@@ -67,7 +67,7 @@ update msg model =
 view : Model -> Html Msg
 view model =
     main_ []
-        [ h1 [] [ text "Twish" ]
+        [ h1 [] [ text "Counters" ]
         , div [ class "sum" ] [ text ("Sum: " ++ toString (List.sum model.counters)) ]
         , div [ class "counter" ]
             [ button [ onClick IncrementAll ] [ text "+" ]
