@@ -6,15 +6,16 @@ import Html.Events exposing (onClick)
 
 
 type alias Model =
-    {  counter1: Int
-    , counter2: Int }
+    { counter1 : Int
+    , counter2 : Int
+    }
 
 
 init : Model
-init = {
-    counter1: 0,
-    counter2: 0
- }
+init =
+    { counter1 = 0
+    , counter2 = 0
+    }
 
 
 
@@ -22,8 +23,10 @@ init = {
 
 
 type Msg
-    = Increment
-    | Decrement
+    = Increment1
+    | Decrement1
+    | Increment2
+    | Decrement2
 
 
 update : Msg -> Model -> Model
