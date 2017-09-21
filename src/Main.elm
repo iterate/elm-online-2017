@@ -34,12 +34,6 @@ update msg model =
         Decrement1 ->
             { model | counter1 = model.counter1 - 1 }
 
-        Increment2 ->
-            { model | counter2 = model.counter2 + 1 }
-
-        Decrement2 ->
-            { model | counter2 = model.counter2 - 1 }
-
 
 
 -- View
