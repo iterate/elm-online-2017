@@ -25,17 +25,17 @@ init =
 type Msg
     = Increment1
     | Decrement1
-    | Increment1
-    | Decrement1
+    | Increment2
+    | Decrement2
 
 
 update : Msg -> Model -> Model
 update msg model =
     case msg of
-        Increment ->
+        Increment1 ->
             model + 1
 
-        Decrement ->
+        Decrement1 ->
             model - 1
 
 
