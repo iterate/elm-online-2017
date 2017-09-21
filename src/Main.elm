@@ -22,7 +22,7 @@ init =
 
 type Msg
     = Increment Int
-    | Decrement Int
+    | Decrement
 
 
 update : Msg -> Model -> Model
