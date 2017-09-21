@@ -50,6 +50,12 @@ update msg model =
             in
                 { model | counters = List.indexedMap updateElement model.counters }
 
+        IncrementAll ->
+            let
+             increment count = count + 1
+            in
+                { model | counters = List.map increment model.counters }
+
 
 
 -- View
