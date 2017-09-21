@@ -6,7 +6,7 @@ import Html.Events exposing (onClick)
 
 
 type alias Model =
-    {  ...??!?? }
+    {  ??? }
 
 
 init : Model
