@@ -57,7 +57,7 @@ view : Model -> Html Msg
 view model =
     main_ []
         [ h1 [] [ text "Counter" ]
-        ,
+        , div [] []
         ]
 
 viewCounter : Int -> Int -> Html Msg
