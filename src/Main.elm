@@ -36,7 +36,7 @@ update msg model =
                     else
                         cnt
             in
-                a + b
+                { model | counters = List.indexedMap updateElement model.counters}
 
         Decrement indexToChange ->
 
