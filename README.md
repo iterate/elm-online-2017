@@ -2,6 +2,8 @@
 
 _21.09.2017_
 
+See the branches of this repo for code. Each branch is one step
+
 http://iter.at/online17
 
 ```
