@@ -1,6 +1,6 @@
 module Main exposing (..)
 
-import Html exposing (Html, main_, header, h1, text, div)
+import Html exposing (Html, main_, header, h1, text, div, button)
 import Html.Attributes exposing (class)
 
 
@@ -36,7 +36,8 @@ view model =
     main_ []
         [ h1 [] [ text "Counter" ]
         , div [ class "counter" ]
-            [button [] [text "+"]]
+            [ button [] [ text "+" ]
+            , text (toString model)]
         ]
 
 
