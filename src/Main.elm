@@ -28,10 +28,10 @@ type Msg
 update : Msg -> Model -> Model
 update msg model =
     case msg of
-        Increment1 ->
+        Increment indexToChange ->
             { model | counter1 = model.counter1 + 1 }
 
-        Decrement1 ->
+        Decrement indexToChange ->
             { model | counter1 = model.counter1 - 1 }
 
 
