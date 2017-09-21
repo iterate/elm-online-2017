@@ -67,6 +67,16 @@ button {
     background: none;
 }
 
+.new {
+    width: 100%;
+    display: flex;
+}
+
+.new input {
+    flex-grow: 1;
+    font-size: 20px;
+}
+
 button:disabled {
     cursor: default;
 }
@@ -93,7 +103,7 @@ body {
 }
 
 main {
-    max-width: 1024px;
+    max-width: 500px;
     width: 100%;
     margin: 0 auto;
 }
@@ -113,8 +123,6 @@ button {
 
 .counter {
     font-size: 25px;
-    margin-right: -10px;
-    margin-left: -10px;
     margin-bottom: 10px;
     display: flex;
     width: 500px;
