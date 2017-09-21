@@ -48,11 +48,6 @@ view model =
             , text (toString model.counter1)
             , button [ onClick Decrement1 ] [ text "-" ]
             ]
-        , div [ class "counter" ]
-            [ button [ onClick Increment2 ] [ text "+" ]
-            , text (toString model.counter2)
-            , button [ onClick Decrement2 ] [ text "-" ]
-            ]
         ]
 
 
