@@ -36,10 +36,17 @@ update msg model =
                     else
                         cnt
             in
-                { model | counters = List.indexedMap updateElement model.counters}
+                { model | counters = List.indexedMap updateElement model.counters }
 
         Decrement indexToChange ->
-
+            let
+                updateElement index cnt =
+                    if index == indexToChange then
+                        cnt + 1
+                    else
+                        cnt
+            in
+                { model | counters = List.indexedMap updateElement model.counters }
 
 
 
