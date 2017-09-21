@@ -42,7 +42,7 @@ update msg model =
             let
                 updateElement index cnt =
                     if index == indexToChange then
-                        cnt + 1
+                        cnt - 1
                     else
                         cnt
             in
