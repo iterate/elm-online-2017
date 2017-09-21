@@ -6,7 +6,10 @@ import Html.Events exposing (onClick)
 
 
 type alias Model =
-    Int
+    {
+        name: String,
+        age: Int
+    }
 
 
 init : Model
@@ -42,9 +45,9 @@ view model =
     main_ []
         [ h1 [] [ text "Counter" ]
         , div [ class "counter" ]
-            [ button [onClick Increment] [ text "+" ]
+            [ button [ onClick Increment ] [ text "+" ]
             , text (toString model)
-            , button [onClick Decrement] [ text "-" ]
+            , button [ onClick Decrement ] [ text "-" ]
             ]
         ]
 
