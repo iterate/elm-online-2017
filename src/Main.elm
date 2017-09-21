@@ -52,9 +52,19 @@ update msg model =
 
         IncrementAll ->
             let
-             increment count = count + 1
+                increment count =
+                    count + 1
             in
                 { model | counters = List.map increment model.counters }
+
+        DecrementAll ->
+            let
+                increment count =
+                    count + 1
+            in
+                { model | counters = List.map increment model.counters }
+
+
 
 
 
