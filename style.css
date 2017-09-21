@@ -67,6 +67,16 @@ button {
     background: none;
 }
 
+.new {
+    width: 100%;
+    display: flex;
+}
+
+.new input {
+    flex-grow: 1;
+    font-size: 20px;
+}
+
 button:disabled {
     cursor: default;
 }
@@ -93,7 +103,7 @@ body {
 }
 
 main {
-    max-width: 1024px;
+    max-width: 500px;
     width: 100%;
     margin: 0 auto;
 }
@@ -104,20 +114,28 @@ header {
     align-items: center;
 }
 
-.counter {
-    font-size: 25px;
-    margin-right: -10px;
-    margin-bottom: 10px;
-}
-
-.counter button {
+button {
     font-size: 25px;
     background-color: var(--cta);
     color: #fff;
+    font-weight: bold;
+}
+
+.counter {
+    font-size: 25px;
+    margin-bottom: 10px;
+    display: flex;
+    width: 500px;
+}
+
+.counter .title {
+    flex-grow: 1;
+}
+
+.counter button {
     margin-left: 10px;
     margin-right: 10px;
     width: 40px;
-    font-weight: bold;
 }
 
 .inputs {
