@@ -57,6 +57,7 @@ view : Model -> Html Msg
 view model =
     main_ []
         [ h1 [] [ text "Counter" ]
+        , div [class "sum"] [text ("Sum: " ++ toString (List.sum model.counters))]
         , div [ class "counters" ]
             (List.indexedMap viewCounter model.counters)
         ]
