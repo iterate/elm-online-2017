@@ -6,11 +6,15 @@ import Html.Events exposing (onClick)
 
 
 type alias Model =
-    {  ??? }
+    {  counter1: Int
+    , counter2: Int }
 
 
 init : Model
-init = { ??? }
+init = {
+    counter1: 0,
+    counter2: 0
+ }
 
 
 
