@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Html exposing (Html, main_, header, h1, text, div, button)
-import Html.Attributes exposing (class)
+import Html.Attributes exposing (class, onClick)
 
 
 type alias Model =
@@ -27,6 +27,7 @@ update msg model =
     case msg of
         Increment ->
             model + 1
+
         Decrement ->
             model - 1
 
