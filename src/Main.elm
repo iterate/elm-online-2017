@@ -21,3 +21,10 @@ view : Model -> Html Msg
 view model
     main_ []
         [h1 [] [text "Hello World!"]]
+
+main : Program Never Model Msg
+main =
+    Html.beginnerProgram
+        { model = init
+        , view = view
+        , update = update }
