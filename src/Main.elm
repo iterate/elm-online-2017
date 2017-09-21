@@ -37,7 +37,9 @@ view model =
         [ h1 [] [ text "Counter" ]
         , div [ class "counter" ]
             [ button [] [ text "+" ]
-            , text (toString model)]
+            , text (toString model)
+            , button [] [text "-"]
+            ]
         ]
 
 
