@@ -36,7 +36,7 @@ view model =
     main_ []
         [ h1 [] [ text "Counter" ]
         , div [ class "counter" ]
-            []
+            [button [] [text "+"]]
         ]
 
 
