@@ -12,7 +12,7 @@ type alias Model =
 
 init : Model
 init =
-    { counters = [0,0,0,0,0,0,0]
+    { counters = [ 0, 0, 0, 0, 0, 0, 0 ]
     }
 
 
@@ -21,10 +21,8 @@ init =
 
 
 type Msg
-    = Increment1
-    | Decrement1
-    | Increment2
-    | Decrement2
+    = Increment Int
+    | Decrement Int
 
 
 update : Msg -> Model -> Model
