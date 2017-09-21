@@ -19,4 +19,5 @@ update msg model =
 
 view : Model -> Html Msg
 view model
-    main_ [] []
+    main_ []
+        [h1 [] [text "Hello World!"]]
