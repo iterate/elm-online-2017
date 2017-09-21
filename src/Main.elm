@@ -1,7 +1,8 @@
 module Main exposing (..)
 
 import Html exposing (Html, main_, header, h1, text, div, button)
-import Html.Attributes exposing (class, onClick)
+import Html.Attributes exposing (class)
+import Html.Events exposing (onClick)
 
 
 type alias Model =
