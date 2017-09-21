@@ -57,13 +57,16 @@ view : Model -> Html Msg
 view model =
     main_ []
         [ h1 [] [ text "Counter" ]
-        , div [ class "counter" ]
-            [ button [ onClick (Increment 0) ] [ text "+" ]
-            , text (toString model.counters)
-            , button [ onClick (Decrement 0) ] [ text "-" ]
-            ]
+        ,
         ]
 
+viewCounter : Int -> Int -> Html Msg
+viewCounter index count =
+    div [ class "counter" ]
+        [ button [ onClick (Increment index) ] [ text "+" ]
+        , text (toString count)
+        , button [ onClick (Decrement index) ] [ text "-" ]
+        ]
 
 main : Program Never Model Msg
 main =
