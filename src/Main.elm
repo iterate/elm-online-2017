@@ -33,10 +33,14 @@ update : Msg -> Model -> Model
 update msg model =
     case msg of
         Increment1 ->
-            model + 1
+            { model | counter1 = model.counter1 + 1 }
 
         Decrement1 ->
             model - 1
+
+        Increment2 ->
+
+        Decrement2
 
 
 
