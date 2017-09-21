@@ -73,8 +73,10 @@ view : Model -> Html Msg
 view model =
     main_ []
         [ h1 [] [ text "Counter" ]
-        , div [ class "sum" ] [ text ("Sum: " ++ toString (List.sum model.counters)) ]
-        div [ class "counter" ]
+        , div [ class "sum" ]
+            [ text ("Sum: " ++ toString (List.sum model.counters)) ]
+        , div
+            [ class "counter" ]
             [ button [ onClick (IncrementAll) ] [ text "+" ]
             , button [ onClick (DecrementAll) ] [ text "-" ]
             ]
