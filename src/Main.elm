@@ -5,6 +5,9 @@ import Html exposing (Html, main_, header, h1, text)
 type alias Model =
     Int
 
+init : Model
+init = 0
+
 -- Update
 
 type Msg
