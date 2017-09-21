@@ -35,7 +35,8 @@ view : Model -> Html Msg
 view model =
     main_ []
         [ h1 [] [ text "Counter" ]
-        , div [] ]
+        , div [class "counter"]
+        ]
 
 
 main : Program Never Model Msg
