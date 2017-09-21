@@ -1,6 +1,6 @@
 module Main exposing (..)
 
-import Html exposing (Html, main_, header, h1, text)
+import Html exposing (Html, main_, header, h1, text, div)
 import Html.Attributes exposing (class)
 
 
@@ -35,7 +35,8 @@ view : Model -> Html Msg
 view model =
     main_ []
         [ h1 [] [ text "Counter" ]
-        , div [class "counter"]
+        , div [ class "counter" ]
+            []
         ]
 
 
