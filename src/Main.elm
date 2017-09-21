@@ -57,7 +57,8 @@ view : Model -> Html Msg
 view model =
     main_ []
         [ h1 [] [ text "Counter" ]
-        , div [class "counters"] []
+        , div [ class "counters" ]
+            (List.indexedMap viewCounter model.counters)
         ]
 
 
