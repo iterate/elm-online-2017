@@ -7,8 +7,6 @@ import Html.Events exposing (onClick)
 
 type alias Model =
     {
-        name: String,
-        age: Int
     }
 
 
